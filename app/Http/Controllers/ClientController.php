@@ -40,6 +40,6 @@ class ClientController extends Controller
     public function getBills($client) {
         $bills = Bill::where('client_id', $client)->get();
 
-        return reponse()->json($bills);
+        return response()->json($bills);
     }
 }
