@@ -18,8 +18,8 @@ class ClientController extends Controller
         return redirect('/');
     }
 
-    public function getClient($client) {
-        $client = Client::where('name', $client)->get();
+    public function getClient($id) {
+        $client = Client::find($id);
 
         return response()->json($client);
     }
