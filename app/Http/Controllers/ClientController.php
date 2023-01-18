@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bill;
 use App\Models\Client;
 use Illuminate\Http\Request;
 
@@ -31,8 +32,14 @@ class ClientController extends Controller
     }
 
     public function searchClient($text) {
-        $client = Client::select(['id'])->where('name', "%{{ $text }}%")->first();
+        $client = Client::select(['id'])->where('name','LIKE', $text)->first();
 
         return response()->json($client);
+    }
+
+    public function getBills($client) {
+        $bills = Bill::where('client_id', $client)->get();
+
+        return reponse()->json($bills);
     }
 }
