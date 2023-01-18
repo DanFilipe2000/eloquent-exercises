@@ -23,4 +23,10 @@ class ClientController extends Controller
 
         return response()->json($client);
     }
+
+    public function getClientByName($name) {
+        $client = Client::where('name', $name)->get();
+
+        return response()->json($client);
+    }
 }

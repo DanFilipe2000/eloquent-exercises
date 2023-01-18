@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::post('/clients/store', [ClientController::class, 'store']);
 
 Route::get('/clients/show/{client}', [ClientController::class, 'getClient']);
+
+Route::get('/clients/name/{name}', [ClientController::class, 'getClientByName']);
