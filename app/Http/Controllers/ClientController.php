@@ -48,4 +48,10 @@ class ClientController extends Controller
 
         return response()->json($bills);
     }
+
+    public function betweenValues($value1, $value2) {
+        $bills = Bill::whereBetween('value', [$value1, $value2])->get();
+
+        return response()->json($bills);
+    }
 }
