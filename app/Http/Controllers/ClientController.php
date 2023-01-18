@@ -25,13 +25,13 @@ class ClientController extends Controller
     }
 
     public function getClientByName($name) {
-        $client = Client::where('name', $name)->without('created_at', 'updated_at')->get();
+        $client = Client::where('name', $name)->without(['created_at', 'updated_at'])->get();
 
         return response()->json($client);
     }
 
     public function searchClient($text) {
-        $client = Client::where('name', $text)->without('created_at', 'updated_at')->get();
+        $client = Client::where('name', $text)->without(['created_at', 'updated_at'])->get();
 
         return response()->json($client);
     }
